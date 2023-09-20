@@ -1,0 +1,63 @@
+<ion-content>
+ 
+<ion-toolbar>
+  <ion-title>{{titlePdf}}</ion-title>
+<ion-buttons slot="start">
+
+  <ion-back-button text="" defaultHref="/">
+
+</ion-back-button>
+</ion-buttons>
+<ion-button (click)="onClick2(urlPdf)"  slot="end" fill="clear">
+تنزيل
+<ion-icon name="arrow-down-circle-outline"></ion-icon>
+</ion-button>
+</ion-toolbar>
+
+
+<ion-toolbar>
+
+<ion-button (click)="firstPage()"fill="clear">
+  <ion-icon name="play-skip-forward-outline"></ion-icon>
+</ion-button>
+<ion-button  (click)="backPage()"fill="clear">
+  <ion-icon name="arrow-back-outline"></ion-icon>
+</ion-button>
+<label >{{numPage}}</label>
+<span> / </span>
+<label >{{numPage}}</label>
+<ion-button (click)="NextPage()"fill="clear">
+  <ion-icon name="arrow-forward-outline"></ion-icon>
+</ion-button>  
+<ion-button (click)="lastPage()"fill="clear" >
+<ion-icon name="play-skip-back-outline"></ion-icon>
+</ion-button>
+
+</ion-toolbar>
+
+<div class="center" *ngIf="loading">
+<ion-spinner name="circles"></ion-spinner>
+
+</div>
+<ngx-extended-pdf-viewer 
+      
+  [src]="src"
+  [contextMenuAllowed]="false"
+  [useBrowserLocale]="true"
+  [zoom]="'page-width'"
+  [showToolbar]="true"
+  [showFindButton]="true"
+  [showSecondaryToolbarButton]="false"
+  [showDrawEditor]="false"
+  [showSidebarButton]="false"
+  [showZoomButtons]="false"
+  [showBookModeButton]="false"
+  [showOpenFileButton]="false"
+  [showPropertiesButton]="false"
+  [page]="numPage"
+  >
+  
+  </ngx-extended-pdf-viewer>
+  
+  
+</ion-content>
